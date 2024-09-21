@@ -78,3 +78,18 @@ netList(I_*)
 -- ideal: p01 - p04, p13*p24 - p12*p34, p03*p24 - p02*p34, p14*p23 - p12*p34, p04*p23 - p24*p34, p03*p14 - p04*p34,
 -- p02*p14 - p04*p24, p04*p13 - p14*p34, p03*p13 - p34^2, p02*p13 - p24*p34, p04*p12 - p14*p24, p03*p12 - p24*p34,
 -- p02*p12 - p24^2
+
+bmt_nonblockdeleted = matrix {{t1, 0, t6, t7},
+                              {0, t2, t6, t7},
+                              {t6, t6, t3, t7},
+                              {t7, t7, t7, t4}}
+I = eliminate({t1,t2,t3,t4,t5,t6,t7},minors(1,bmt_nonblockdeleted*K4-id4))
+-- see sage code for verification of non-toric after any linear change of coordinates
+
+---- non block-deleted graph with toric structure (remark 6.12) ------------------------------
+bmt_nonblockdeleted = matrix {{t1, 0, t7, t7},
+                              {0, t2, t7, t7},
+                              {t7, t7, t3, t7},
+                              {t7, t7, t7, t4}}
+I = eliminate({t1,t2,t3,t4,t5,t6,t7},minors(1,bmt_nonblockdeleted*K4-id4))
+-- see sage code for verification of toric after a linear change of coordinates
